@@ -1,2 +1,2 @@
 # Codess
-Here is some DSA Solved Questions by me
+Here is some DSA Questions Solved by me
