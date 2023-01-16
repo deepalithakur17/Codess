@@ -1,0 +1,136 @@
+#include <iostream>
+using namespace std;
+
+class queue
+{
+public:
+    int rear;
+    int size;
+    int front;
+    int *arr;
+    // queue()
+    // {
+
+    // }
+    queue(int size)
+    {
+        rear = 0;
+        front = 0;
+        this->size = size;
+        arr[size];
+    }
+    void insert(int n)
+    {
+        if (rear == size)
+        {
+            if (front != 0)
+            {
+                arr[front - 1] = n;
+                front--;
+            }
+            else
+            {
+                cout << "Queue is overflow" << endl;
+            }
+            return;
+        }
+        arr[rear] = n;
+        rear++;
+    }
+    void del()
+    {
+        if (rear == front)
+        {
+            cout << "Queue is empty " << endl;
+            return;
+        }
+        front++;
+    }
+    void print()
+    {
+        if (front == rear)
+        {
+            cout << "Queue is empty" << endl;
+            return;
+        }
+        int i = front;
+        while (i != rear)
+        {
+            cout << arr[i] << " ";
+            i++;
+        }
+        cout << endl;
+    }
+    void peek()
+    {
+        if (front == rear)
+        {
+            cout << "Queue is empty" << endl;
+            return;
+        }
+        cout << "Element at peek is " << arr[front] << endl;
+    }
+    void iempty()
+    {
+        if (front == rear)
+        {
+            cout << "Queue is empty" << endl;
+            return;
+        }
+    }
+    void isfull()
+    {
+        if (rear == size)
+        {
+            cout << "Queue is full " << endl;
+            return;
+        }
+        cout << "Queue has " << rear - front << " elements. Since Queue is not full" << endl;
+    }
+};
+
+int main()
+{
+    int n;
+    cout << "Enter the maximun size of Queue : ";
+    cin >> n;
+    queue q(n);
+    while (1)
+    {
+        cout << "1. For insertion" << endl;
+        cout << "2. For Deletion" << endl;
+        cout << "3. To check Queue is empty or not " << endl;
+        cout << "4. To check Queue is full or not" << endl;
+        cout << "5. To print the elements of Queue" << endl;
+        cout << "6. For getting the elment at peek" << endl;
+        cout << "Press any key to exit" << endl;
+        int i;
+        cin >> i;
+        switch (i)
+        {
+        case 1:
+            int x;
+            cout << "Enter the element you want to insert in Queue ";
+            cin >> x;
+            q.insert(x);
+            break;
+        case 2:
+            q.del();
+            break;
+        case 3:
+            q.iempty();
+            break;
+        case 4:
+            q.isfull();
+            break;
+        case 5:
+            q.print();
+            break;
+        case 6:
+            q.peek();
+            break;
+        default:
+            exit(1);
+        }
+    }
+}
