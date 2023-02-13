@@ -48,6 +48,6 @@ int main()
     int m = bin_search(arr, n, 0, num-1);
     if (m>-1)
     {
-        cout << "Element is present at index " << m;
+        cout << "Element is present at index " <<m;
     }
 }
