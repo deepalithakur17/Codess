@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int m,n=0; 
+    cout<<"Enter a number : ";
+    cin>>m;
+    for(int i=1;i*i<m;i++)
+    {
+        if(m%i==0)
+        {
+            n++;
+            if(i%m/i!=0)
+            {
+                n++;
+            }
+        }
+    }
+    cout<<"Number of divisors of "<<m<<" is "<<n<<endl;
+} 
