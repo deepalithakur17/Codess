@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve(string s, int i,int n)
+{
+    if(i==n)
+    {
+        cout<<s<<endl;
+        return;
+    }
+    for(int j=i;j<n;j++)
+    {
+        swap(s[j],s[i]);
+        solve(s,i+1,n);
+        swap(s[j],s[i]);
+    }
+}
+
+
+int main()
+{
+   solve("ABCD",0,4);
+}
